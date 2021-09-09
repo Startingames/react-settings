@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link href="./index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #555;
+        border-radius: 10px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b0b0b0; 
+      }
+      </style>
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>SIMAN WebAPP - Stromag</title>
+  </head>
+  <body>
+    <div class="loader" id="loader"><div>
+      <div class="loadericon">
+        <div>Loading<br/>Please wait</div>
+      </div>
+      <div class="loading"></div>
+    </div></div>
+
+    <!-- The React APP div -->
+    <div class="root bg" id="root" style="background: black;"></div>
+
+    <noscript class="needjs">
+      <div>You need to enable JavaScript to run this app.</div>
+      <div>Vous devez activer JavaScript pour exécuter cette application.</div>
+    </noscript>
+
+    <input style="display:none;" id="reactloaded" value="0">
+
+    <script type="text/javascript">
+      var lfdelay = 10;
+      var itval;
+      function loaderFct()
+      {
+        console.log("Initial loading delay : " + lfdelay +" - React APP ready ? " +document.getElementById('reactloaded').value);
+
+        if(lfdelay>0) {lfdelay--;}
+        else if(document.getElementById('reactloaded').value==1)
+        {
+          console.log("Initial loading finished - Passing to APP ...");
+          document.getElementById('root').style.opacity = 1;
+          document.getElementById('root').style.display = "unset";
+          clearInterval(itval);
+        }
+      }
+
+      itval = setInterval(loaderFct, 100);
+    </script>
+
+  </body>
+</html>

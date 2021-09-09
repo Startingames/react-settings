@@ -1,0 +1,16 @@
+.select {
+    display: flex;
+    border: white solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.select>p {
+    flex-grow: 1;
+    width: auto;
+    margin: auto;
+}
+
+.selectSelect {
+    color: black;
+}

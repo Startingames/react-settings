@@ -1,0 +1,256 @@
+@import "../variables.scss";
+
+.infoBar {
+    display: flex;
+}
+
+.infoBar>button {
+    font-size: 1.5vw;
+    padding: 0 1vw;
+}
+
+.infoBar>button :hover {
+    opacity: 0.75;
+}
+
+.infoBar>div {
+    display: flex;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+}
+
+.infoBar>div>div {
+    display: none;
+    cursor: pointer;
+}
+
+.infoBar>div>div::after {
+    content: " / ";
+    cursor: default;
+}
+
+.infoBar>div>:last-child::after { content: ""; }
+
+.infoBar>div>:last-child { display: unset; }
+
+
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .infoBar>div>div {display: unset;}
+
+    }
+
+
+/* For mobile phones: */
+.infoBarPath {
+    display: none;
+    cursor: pointer;
+}
+  
+@media only screen and (min-width: 768px) {
+/* For desktop: */
+.infoBarPath {display: unset;}
+}
+
+
+.main {
+    display: flex;
+}
+
+.menu-menu {
+    display: none;
+    flex-direction: column;
+    background: $color1;
+    width: 15vw;
+    height: auto;
+    padding: 10vh 0;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .menu-menu {display: flex;}
+    }
+
+.menu-menu>div {
+    margin: auto 0;
+    overflow-x: auto;
+}
+
+.menu-menu-el {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2vh 0vh;
+    font-size: 1.4vw;
+    min-height: 7vh;
+    background: $colorext1;
+}
+
+.menu-menu-el>div {
+    margin: auto 0;
+    padding: 0 0.5vw;
+}
+
+.menu-menu-el.selected {
+    background: rgba($colorext1, .25);
+}
+
+.menu-menu-el:hover {
+    background: rgba($colorext1, .75);
+    cursor: pointer;
+}
+
+.menu-menu-el.selected:hover {
+    background: rgba($colorext1, .25);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.menu-name {
+    width: 100%;
+    height: 10vh;
+    font-size: 6vmin;
+}
+
+.menu-title {
+    height: 5vh;
+    font-size: 3vmin;
+    background: $color4;
+    color: $colorext2;
+    padding-left: 0.5vw;
+}
+
+
+
+
+
+.page {
+    background: $colorext2;
+    width: 85vw;
+    height: 95vh;
+    padding: 2vmin;
+    overflow: auto;
+}
+
+.button-icon {
+    background: $color2;
+    padding: 0 0.75vw;
+    height: 100%;
+}
+
+.button-icon:hover {
+    background: rgba($color2, .75);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.separator {
+    border-bottom: white solid 2px;
+    margin: 10px;
+}
+
+.link {
+    display: flex;
+    cursor: pointer;
+    border: white solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.link>p {
+    flex-grow: 1;
+    width: auto;
+    margin: auto;
+}
+
+.switch {
+    display: flex;
+    border: white solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.switch>p {
+    flex-grow: 1;
+    width: auto;
+    margin: auto;
+}
+
+/* The switch - the box around the slider */
+.button {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
