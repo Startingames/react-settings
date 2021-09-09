@@ -58,7 +58,7 @@
     display: flex;
 }
 
-.menu-menu {
+.menu {
     display: none;
     flex-direction: column;
     background: $color1;
@@ -69,9 +69,10 @@
 
 @media only screen and (min-width: 768px) {
     /* For desktop: */
-    .menu-menu {display: flex;}
+    .menu {display: flex;}
     }
 
+    /*
 .menu-menu>div {
     margin: auto 0;
     overflow-x: auto;
@@ -127,13 +128,14 @@
     padding-left: 0.5vw;
 }
 
-
+*/
 
 
 
 .page {
+    flex-grow: 1;
     background: $colorext2;
-    width: 85vw;
+    
     height: 95vh;
     padding: 2vmin;
     overflow: auto;

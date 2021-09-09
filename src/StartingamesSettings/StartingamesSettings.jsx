@@ -111,7 +111,7 @@ export class StartingamesSettingsPage extends Component
                         {
                             return React.cloneElement(child, {currentPath: currentPathNext, link: (this.props.link+"/"+compopath)});
                         }
-                        else
+                        else if(""===currentPathOn)
                         {
                             return React.cloneElement(child, {display: "link", currentPath: currentPathNext, link: (this.props.link+"/"+compopath)});
                         }
@@ -163,7 +163,7 @@ export default class StartingamesSettings extends Component
         return (
             <>
                 <div className={styles['infoBar']}>
-                    <button onClick={() => {this.gotoInternal(backpath);}}> 
+                    <button onClick={() => {this.gotoInternal(backpath);}}>
                         <FontAwesomeIcon icon={["fas", "arrow-left"]} />
                     </button>
                     <div>
@@ -173,6 +173,16 @@ export default class StartingamesSettings extends Component
 
 
                 <div className={styles['main']}>
+                    <div className={styles['menu']}>
+
+                        {React.Children.map(this.props.children, child => {
+                            if(child.type.prototype.pagefunction)   //TODO maybe a better solution
+                            {
+                                return React.cloneElement(child, {display: "link", currentPath: "", link: ("/"+child.props.path)});
+                            }
+                        })}
+
+                    </div>
 
                     <div className={styles['page']} >
                         <StartingamesSettingsPage slug="slug content" link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>

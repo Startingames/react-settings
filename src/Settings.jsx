@@ -55,6 +55,14 @@ export default class Settings extends Component
 
                         </StartingamesSettingsPage>
 
+                        <StartingamesSettingsPage title="Network" slug="slug infopage" path="network">
+
+                                <SettingsSub title="Sub" slug="slug subpage" path="sub" />
+                            
+                                <StartingamesSettingsSeparator slug="info">2</StartingamesSettingsSeparator>
+
+                        </StartingamesSettingsPage>
+
                 </StartingamesSettings>
 
             </>
