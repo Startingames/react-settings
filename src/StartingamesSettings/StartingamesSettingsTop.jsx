@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 
 export class StartingamesSettingsComponent extends Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.makeConfig = this.makeConfig.bind(this);
+        this.config = {};
+    }
+
     makeConfig()
     {
         let self = this;

@@ -1,0 +1,16 @@
+.ipv4 {
+    display: flex;
+    border: white solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.ipv4>p {
+    flex-grow: 1;
+    width: auto;
+    margin: auto;
+}
+
+.ipv4>div {
+    color: black;
+}

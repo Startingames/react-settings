@@ -5,6 +5,7 @@ import './App.scss';
 import StartingamesSettings, { StartingamesSettingsPage, StartingamesSettingsSeparator } from './StartingamesSettings/StartingamesSettings';
 import StartingamesSettingsSwitch from './StartingamesSettings/StartingamesSettingsSwitch';
 import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSettingsSelect';
+import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
 
 class SettingsSub extends StartingamesSettingsPage
 {
@@ -52,6 +53,8 @@ export default class Settings extends Component
                                 <SettingsSub title="Sub" slug="slug subpage" path="sub" />
                             
                                 <StartingamesSettingsSeparator slug="info">2</StartingamesSettingsSeparator>
+
+                                <StartingamesSettingsIPv4 ip={[150,235,10,1]} mask={16} />
 
                         </StartingamesSettingsPage>
 
