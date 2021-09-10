@@ -2,11 +2,12 @@
 
 .infoBar {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .infoBar>button {
-    font-size: 1.5vw;
-    padding: 0 1vw;
+    font-size: 30px;
+    padding: 0 15px;
 }
 
 .infoBar>button :hover {
@@ -15,10 +16,43 @@
 
 .infoBar>div {
     display: flex;
-    font-size: 1.5vw;
-    padding-left: 1vw;
+    flex-direction: column;
 }
 
+.infoBarL1 {
+    display: flex;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.infoBarL1>div::after {
+    content: " / ";
+    cursor: default;
+}
+
+.infoBarL1>:nth-last-child(2):after {
+    content: "";
+}
+
+.infoBarL1>:last-child { display: none; }
+
+
+.infoBarL2 {
+    display: flex;
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+.infoBarL2>div {
+    display: none;
+}
+
+.infoBarL2>:last-child { display: unset; }
+
+
+
+/*
 .infoBar>div>div {
     display: none;
     cursor: pointer;
@@ -32,27 +66,27 @@
 .infoBar>div>:last-child::after { content: ""; }
 
 .infoBar>div>:last-child { display: unset; }
+*/
 
-
-
+/*
 @media only screen and (min-width: 768px) {
-    /* For desktop: */
+
     .infoBar>div>div {display: unset;}
 
-    }
+    }*/
 
 
-/* For mobile phones: */
+/*
 .infoBarPath {
     display: none;
     cursor: pointer;
 }
   
 @media only screen and (min-width: 768px) {
-/* For desktop: */
+
 .infoBarPath {display: unset;}
 }
-
+*/
 
 .main {
     display: flex;
@@ -138,6 +172,10 @@
     
     height: 95vh;
     padding: 2vmin;
+}
+
+.pageContent {
+    height: 100%;
     overflow: auto;
 }
 
@@ -152,8 +190,48 @@
     cursor: pointer;
 }
 
+.bigMenu {
+    width: 100%;
+    overflow: auto;
+}
 
+.bigMenuTitle {
+    display: flex;
+    width: 100%;
+    height: 30%;
+}
 
+.bigMenuTitle>div {
+    margin: auto;
+    font-size: 40px;
+}
+
+.bigMenuContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: middle;
+    justify-content: space-around;
+}
+
+.bigMenuContent>div{
+    padding: 20px;
+    border: 1px solid white;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For desktop: */
+    .bigMenuContent>div{ width: 33%;}
+    .bigMenuTitle>div { font-size: 60px; }
+    }
+
+@media only screen and (min-width: 900px) {
+    /* For desktop: */
+    .bigMenuContent>div{ width: 20%;}
+    .bigMenuTitle>div { font-size: 80px; }
+    }
 
 
 

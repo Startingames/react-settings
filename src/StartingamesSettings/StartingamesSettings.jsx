@@ -74,6 +74,18 @@ export class StartingamesSettingsPage extends Component
             currentPathNext=currentPath.substr(currentPath.indexOf("/"));
         }
 
+        //Render in display mode "bigMEnu"
+        if(this.props?.display==="bigMenu")
+        {
+            return (
+                <>
+                    <div onClick={() => {this.gotoInternal(this.props.link);}}>
+                        <p>{this.props.title}</p>
+                    </div>
+                </>
+            );
+        }
+
         //Render in display mode "link"
         if(this.props?.display==="link")
         {
@@ -137,41 +149,40 @@ export class StartingamesSettingsPage extends Component
 
 export default class StartingamesSettings extends Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.gotoSection = this.gotoSection.bind(this);
-    }
-
-    gotoSection(section)
-    {
-        startingamesRouteManager.goto('/_settings/'+section);
-    }
-
     gotoInternal(link)
     {
         startingamesRouteManager.goto('/_settings'+link);
     }
 
-    render ()
+    render()
     {
         let backpath = this.props.path;
         if(backpath[backpath.length-1]==="/") { backpath = backpath.substr(0, backpath.length-1); }
         let backpathIndex = backpath.lastIndexOf("/");
         backpath = backpath.substr(0, backpathIndex);
 
-        return (
-            <>
-                <div className={styles['infoBar']}>
-                    <button onClick={() => {this.gotoInternal(backpath);}}>
-                        <FontAwesomeIcon icon={["fas", "arrow-left"]} />
-                    </button>
-                    <div>
-                        <StartingamesSettingsPage slug="slug infobar" link="" path="_settings" title="Settings" display="infoBar" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+        if(this.props.path==="")
+        {
+            return (<>
+                <div className={styles['bigMenu']}>
+                    <div className={styles['bigMenuTitle']}>
+                        <div>Settings</div>
+                    </div>
+
+                    <div className={styles['bigMenuContent']}>
+                        {React.Children.map(this.props.children, child => {
+                            if(child.type.prototype.pagefunction)   //TODO maybe a better solution
+                            {
+                                return React.cloneElement(child, {display: "bigMenu", currentPath: "", link: ("/"+child.props.path)});
+                            }
+                        })}
                     </div>
                 </div>
+            </>);
+        }
 
-
+        return (
+            <>
                 <div className={styles['main']}>
                     <div className={styles['menu']}>
 
@@ -185,7 +196,25 @@ export default class StartingamesSettings extends Component
                     </div>
 
                     <div className={styles['page']} >
-                        <StartingamesSettingsPage slug="slug content" link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+
+                        <div className={styles['infoBar']}>
+                            <button onClick={() => {this.gotoInternal(backpath);}}>
+                                <FontAwesomeIcon icon={["fas", "chevron-left"]} />
+                            </button>
+                            <div>
+                                <div className={styles['infoBarL1']}>
+                                    <StartingamesSettingsPage link="" title="Settings" display="infoBar" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+                                </div>
+                                <div className={styles['infoBarL2']}>
+                                    <StartingamesSettingsPage link="" title="Settings" display="infoBar" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div className={styles['pageContent']} >
+                            <StartingamesSettingsPage link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+                        </div>
                     </div>
                 </div>
             </>
