@@ -1,5 +1,125 @@
 @import "../variables.scss";
 
+* {
+    font-family: 'Nunito', sans-serif;
+    color: $color2;
+}
+
+
+
+.bigMenu {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    background-color: $color1;
+}
+
+.bigMenuTitle {
+    display: flex;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.bigMenuTitle>div {
+    margin: auto;
+    font-size: 40px;
+}
+
+.bigMenuContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.bigMenuButton{
+    width: 80%;
+    cursor: pointer;
+
+    background-color: $color1;
+    border-radius: 30px;
+    box-shadow: 1px 1px 15px $colorShadow;
+    margin: auto;
+
+    display:flex;
+    flex-direction: column;
+}
+
+.bigMenuButton>.logo
+{
+    width: 30%;
+    margin:auto;
+}
+
+.bigMenuButton>.title
+{
+    margin:auto;
+    padding: 5px 0px;
+    font-size: 4vh;
+}
+
+.bigMenuButton:hover {
+    background:$color3;
+    color:white;
+}
+
+.bigMenuButtonWrapper {
+    padding: 10px 0px;
+}
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    .bigMenuButtonWrapper{
+        width: 100%;
+    }
+    .bigMenuTitle>div { font-size: 35px; }
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    .bigMenuButtonWrapper{
+        width: 75%;
+    }
+    .bigMenuTitle>div { font-size: 45px; }
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    .bigMenuButtonWrapper{
+        width: 50%;
+    }
+    .bigMenuTitle>div { font-size: 55px; }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    .bigMenuButtonWrapper{
+        width: 33%;
+    }
+    .bigMenuTitle>div { font-size: 65px; }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    .bigMenuTitle>div { font-size: 75px; }
+    .bigMenuButtonWrapper{
+        width: 33%;
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .infoBar {
     display: flex;
     margin-bottom: 10px;
@@ -189,49 +309,6 @@
     background: rgba($color2, .75);
     cursor: pointer;
 }
-
-.bigMenu {
-    width: 100%;
-    overflow: auto;
-}
-
-.bigMenuTitle {
-    display: flex;
-    width: 100%;
-    height: 30%;
-}
-
-.bigMenuTitle>div {
-    margin: auto;
-    font-size: 40px;
-}
-
-.bigMenuContent {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: middle;
-    justify-content: space-around;
-}
-
-.bigMenuContent>div{
-    padding: 20px;
-    border: 1px solid white;
-    width: 100%;
-    cursor: pointer;
-}
-
-@media only screen and (min-width: 600px) {
-    /* For desktop: */
-    .bigMenuContent>div{ width: 33%;}
-    .bigMenuTitle>div { font-size: 60px; }
-    }
-
-@media only screen and (min-width: 900px) {
-    /* For desktop: */
-    .bigMenuContent>div{ width: 20%;}
-    .bigMenuTitle>div { font-size: 80px; }
-    }
 
 
 

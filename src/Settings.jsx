@@ -46,9 +46,10 @@ export default class Settings extends Component
 
                     <StartingamesSettingsSelect title="test" values={[0,1]} display={["NO", "YES"]} value={1} />
 
+
                     <StartingamesSettingsSeparator title="Autres" slug="slug autre" path="autre">1</StartingamesSettingsSeparator>
 
-                        <StartingamesSettingsPage title="Informations" slug="slug infopage" path="info">
+                        <StartingamesSettingsPage title="System" slug="slug infopage" path="info">
 
                                 <SettingsSub title="Sub" slug="slug subpage" path="sub" />
                             
@@ -58,7 +59,9 @@ export default class Settings extends Component
 
                         </StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage title="Network" slug="slug infopage" path="network">
+                        <StartingamesSettingsPage title="Devices" slug="slug infopage" path="devices"></StartingamesSettingsPage>
+
+                        <StartingamesSettingsPage title="Network & Internet" slug="slug infopage" path="network">
 
                                 <SettingsSub title="Sub" slug="slug subpage" path="sub" />
                             
@@ -88,8 +91,8 @@ export default class Settings extends Component
 
                         </StartingamesSettingsPage>
 
-                        
-
+                        <StartingamesSettingsPage title="Accounts" slug="slug infopage" path="accounts"></StartingamesSettingsPage>
+                        <StartingamesSettingsPage title="Update & Saves" slug="slug infopage" path="update-saves"></StartingamesSettingsPage>
                 </StartingamesSettings>
 
             </>
