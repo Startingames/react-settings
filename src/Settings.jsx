@@ -6,6 +6,7 @@ import StartingamesSettings, { StartingamesSettingsPage, StartingamesSettingsSep
 import StartingamesSettingsSwitch from './StartingamesSettings/StartingamesSettingsSwitch';
 import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSettingsSelect';
 import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
+import TestContextParent, { TestContextChild } from './TestContext';
 
 class SettingsSub extends StartingamesSettingsPage
 {
@@ -25,7 +26,7 @@ export default class Settings extends Component
     constructor(props)
     {
         super(props);
-        this.state={test: false};
+        this.state={test: false, ip: [0,0,0,0], mask: 16};
     }
 
     render()
@@ -36,6 +37,26 @@ export default class Settings extends Component
         return (
             <>
                 <img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}} />
+
+                <TestContextParent depth={100}>
+
+<TestContextChild>
+    <TestContextChild></TestContextChild>
+</TestContextChild>
+<div><TestContextChild></TestContextChild></div>
+
+
+                </TestContextParent>
+
+                <TestContextParent depth={200}>
+<>
+<TestContextChild>
+    <TestContextChild></TestContextChild>
+</TestContextChild>
+</>
+<TestContextChild></TestContextChild>
+
+                </TestContextParent>
 
 
                 <StartingamesSettings path={this.props.path} route={this.props.route} title="Parametres">
@@ -54,7 +75,11 @@ export default class Settings extends Component
                             
                                 <StartingamesSettingsSeparator slug="info">2</StartingamesSettingsSeparator>
 
-                                <StartingamesSettingsIPv4 ip={[150,235,10,1]} mask={16} />
+
+                                
+
+
+                                <StartingamesSettingsIPv4 ip={this.state.ip} mask={this.state.mask} callbackIp={(state) => this.setState({ip: state})} callbackMask={(state) => this.setState({mask: state})} />
 
                         </StartingamesSettingsPage>
 
