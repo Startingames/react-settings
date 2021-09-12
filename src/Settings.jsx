@@ -36,27 +36,12 @@ export default class Settings extends Component
 
         return (
             <>
-                <img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}} />
 
-                <TestContextParent depth={100}>
+                <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
 
-<TestContextChild>
-    <TestContextChild></TestContextChild>
-</TestContextChild>
-<div><TestContextChild></TestContextChild></div>
+                <div><img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}}/></div>
 
 
-                </TestContextParent>
-
-                <TestContextParent depth={200}>
-<>
-<TestContextChild>
-    <TestContextChild></TestContextChild>
-</TestContextChild>
-</>
-<TestContextChild></TestContextChild>
-
-                </TestContextParent>
 
 
                 <StartingamesSettings path={this.props.path} route={this.props.route} title="Parametres">
@@ -120,6 +105,7 @@ export default class Settings extends Component
                         <StartingamesSettingsPage title="Update & Saves" slug="slug infopage" path="update-saves"></StartingamesSettingsPage>
                 </StartingamesSettings>
 
+                </div>
             </>
         );
     }
