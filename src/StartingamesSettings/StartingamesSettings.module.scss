@@ -53,6 +53,12 @@
     margin:auto;
 }
 
+.bigMenuButton>.logo
+{
+    fill: $color2;
+}
+
+
 .bigMenuButton>.title
 {
     margin:auto;
@@ -62,7 +68,14 @@
 
 .bigMenuButton:hover {
     background:$color3;
-    color:white;
+}
+
+.bigMenuButton:hover .logo{
+    fill: white;
+}
+
+.bigMenuButton:hover .title{
+    color: white;
 }
 
 .bigMenuButtonWrapper {
@@ -125,15 +138,6 @@
 .infoBar {
     display: flex;
     margin-bottom: 10px;
-}
-
-.infoBar>button {
-    font-size: 30px;
-    padding: 0 15px;
-}
-
-.infoBar>button :hover {
-    opacity: 0.75;
 }
 
 .infoBar>div {
@@ -218,7 +222,7 @@
     display: none;
     flex-direction: column;
     background: $color1;
-    width: 15vw;
+    width: 25vw;
     height: auto;
     padding: 10vh 0;
 }
@@ -286,11 +290,19 @@
 
 */
 
+.returnButton {
+    font-size: 40px;
+    padding: 0 15px;
+    cursor: pointer;
+}
 
+.returnButton:hover {
+    opacity: 0.75;
+}
 
 .page {
     flex-grow: 1;
-    background: $colorext2;
+    background: $color4;
     
     height: 95vh;
     padding: 2vmin;
@@ -324,15 +336,61 @@
     margin: 10px;
 }
 
-.link {
-    display: flex;
-    cursor: pointer;
-    border: white solid 1px;
-    padding: 5px;
-    border-radius: 5px;
+
+.bar {
+    height: 3px;
+    border-radius: 100px;
+    width: 0%;
+    margin-left: 2%;
+    background: white;
+    
 }
 
-.link>p {
+.link:hover>.bar{
+    animation: barAnimation 0.17s linear normal forwards;
+}
+
+@keyframes barAnimation {
+    0%   { width:0% }
+    100% { width:75% }
+}
+
+.link {
+    cursor: pointer;
+    padding: 15px;
+    background: $color1;
+    color: $color2;
+}
+
+.link>.content{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.link>.content>.logo {
+    width: 15%;
+    fill: $color2; 
+}
+
+.link>.content>.title {
+    margin: auto auto auto 0;
+}
+
+.link:hover {
+    background: $color3;
+    
+}
+
+.link:hover>.content>.logo {
+    fill: white;   
+}
+
+.link:hover>.content>.title {
+    color: white;
+}
+
+.link>title {
     flex-grow: 1;
     width: auto;
     margin: auto;
