@@ -22,6 +22,10 @@ code {
 }
 
 .root {
+  background-color: rgb(54, 54, 54);
+}
+
+.root {
     position: fixed;
     top: 0;
     bottom: 0;
