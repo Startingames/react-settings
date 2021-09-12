@@ -30,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: stretch;
 }
 
 .bigMenuButton{
@@ -41,7 +42,7 @@
     background-color: $color1;
     border-radius: 30px;
     box-shadow: 1px 1px 15px $colorShadow;
-    margin: auto;
+    margin: 0 auto;
 
     display:flex;
     flex-direction: column;
@@ -66,6 +67,13 @@
     font-size: 4vh;
 }
 
+.bigMenuButton>.desc
+{
+    margin:auto;
+    padding: 5px 0px;
+    font-size: 2vh;
+}
+
 .bigMenuButton:hover {
     background:$color3;
 }
@@ -79,6 +87,7 @@
 }
 
 .bigMenuButtonWrapper {
+    display: flex;
     padding: 10px 0px;
 }
 

@@ -153,6 +153,7 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
                         </div>
 
                         <div className={styles['title']}>{this.props.title}</div>
+                        <div className={styles['desc']}>{this.props.desc}</div>
                     </div>
                 </div>
             );
