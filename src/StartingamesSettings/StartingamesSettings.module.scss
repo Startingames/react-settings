@@ -30,6 +30,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: stretch;
 }
 
 .bigMenuButton{
@@ -58,6 +59,13 @@
     margin:auto;
     padding: 5px 0px;
     font-size: 4vh;
+}
+
+.bigMenuButton>.desc
+{
+    margin:auto;
+    padding: 5px 0px;
+    font-size: 2vh;
 }
 
 .bigMenuButton:hover {
