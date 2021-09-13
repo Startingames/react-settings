@@ -9,13 +9,9 @@ import styles from './StartingamesSettings.module.scss';
 
 import '../App.scss';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import { StartingamesSettingsComponent } from './StartingamesSettingsTop';
 import StartingamesSettingsLinkBar from './StartingamesSettingsLinkBar';
-library.add(fas);
 
 export class StartingamesSettingsSeparator extends StartingamesSettingsComponent
 {
