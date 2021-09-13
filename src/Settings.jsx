@@ -51,7 +51,7 @@ export default class Settings extends Component
 
                 <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
 
-                <div><img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}}/></div>
+                <div style={{margin:"auto"}} ><img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}}/></div>
 
 
 
