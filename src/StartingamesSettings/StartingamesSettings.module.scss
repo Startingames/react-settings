@@ -392,6 +392,13 @@
 
 .link>.content>.logo>div>div {
     margin: auto;
+    display: flex;
+}
+
+.link>.content>.logo>div>div>* {
+    height: 95%;
+    width: 95%;
+    object-fit: contain;
 }
 
 /*

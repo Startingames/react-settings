@@ -25,13 +25,69 @@ export class StartingamesSettingsSeparator extends StartingamesSettingsComponent
     }
 };
 
+export class StartingamesSettingsLink2 extends StartingamesSettingsComponent
+{
+    constructor(props)
+    {
+        super(props);
+
+        this.icon = (<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="100px" y="100px"
+                            viewBox="0 0 491.52 491.52">
+                        <g>
+                            <g>
+                                <path d="M491.52,285.15v-78.78l-57.55-9.6c-4.49-17.3-11.375-33.86-20.525-49.41l33.95-47.53l-55.715-55.7l-47.53,33.95
+                                    c-15.545-9.16-32.11-16.04-49.405-20.53L285.155,0h-78.79l-9.59,57.55c-17.295,4.49-33.86,11.37-49.405,20.53L99.84,44.13
+                                    l-55.715,55.7l33.95,47.53c-9.15,15.55-16.035,32.11-20.525,49.41L0,206.37v78.78l57.55,9.6c4.49,17.3,11.375,33.86,20.525,49.41
+                                    l-33.95,47.53l55.715,55.7l47.53-33.95c15.545,9.16,32.11,16.04,49.405,20.53l9.59,57.55h78.79l9.59-57.55
+                                    c17.295-4.49,33.86-11.37,49.405-20.53l47.53,33.95l55.715-55.7l-33.95-47.53c9.15-15.55,16.035-32.11,20.525-49.41L491.52,285.15
+                                    z M415.6,283.55c-4.35,19.65-12.11,38.34-23.065,55.54l-3.715,5.83l31.825,44.55l-31.175,31.18l-44.56-31.83l-5.825,3.71
+                                    c-17.205,10.96-35.89,18.72-55.54,23.07l-6.75,1.5l-8.99,53.94h-44.09l-8.99-53.94l-6.75-1.5
+                                    c-19.65-4.35-38.335-12.11-55.54-23.07l-5.825-3.71l-44.56,31.83l-31.175-31.18l31.825-44.55l-3.715-5.83
+                                    C88.03,321.89,80.27,303.2,75.92,283.55l-1.495-6.75l-53.945-8.99v-44.1l53.945-8.99l1.495-6.75
+                                    c4.35-19.65,12.11-38.34,23.065-55.54l3.715-5.83l-31.825-44.55l31.175-31.18l44.56,31.83l5.825-3.71
+                                    c17.205-10.96,35.89-18.72,55.54-23.07l6.75-1.5l8.99-53.94h44.09l8.99,53.94l6.75,1.5c19.65,4.35,38.335,12.11,55.54,23.07
+                                    l5.825,3.71l44.56-31.83l31.175,31.18L388.82,146.6l3.715,5.83c10.955,17.2,18.715,35.89,23.065,55.54l1.495,6.75l53.945,8.99
+                                    v44.1l-53.945,8.99L415.6,283.55z"/>
+                            </g>
+                        </g>
+                        
+                    </svg>);
+
+        if(this.props?.icon)
+        {
+            this.icon = this.props.icon;
+        }
+    }
+
+    render()
+    {
+        return (
+            <>
+                <div className={styles['link']+" "+styles['active']} onClick={() => {this.goto(this.props.link);}}>
+                    <div className={styles['content']}>
+                        <div className={styles['logo']}><div><div>
+
+                                {this.icon}
+
+                        </div></div></div>
+                        <div className={styles['title']}>{this.props.title}</div>
+                    </div>
+                    <div className={styles['bar']}>
+
+                    </div>
+                </div>
+            </>
+        );
+    }
+};
+
 export class StartingamesSettingsLink extends StartingamesSettingsComponent
 {
     constructor(props)
     {
         super(props);
 
-        this.icon = (<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="100px" y="100px" height="20px" width="20px"
+        this.icon = (<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="100px" y="100px"
                             viewBox="0 0 491.52 491.52">
                         <g>
                             <g>
@@ -165,6 +221,12 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
             return (<StartingamesSettingsLink icon={this.props.icon} genconf={this.genconf} link={link} title={this.props.title} />);
         }
 
+        //Render in display mode "link"
+        if(this.props?.display==="link2")
+        {
+            return (<StartingamesSettingsLink2 icon={this.props.icon} genconf={this.genconf} link={link} title={this.props.title} />);
+        }
+
         //Render in display mode "Content" (Normal mode)
         return(
             <>
@@ -179,7 +241,7 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
                         }
                         else if(""===currentPathOn)
                         {
-                            return React.cloneElement(child, {genconf: self.genconf, display: "link", currentPath: currentPathNext, link: link});
+                            return React.cloneElement(child, {genconf: self.genconf, display: "link2", currentPath: currentPathNext, link: link});
                         }
                     }
                     else
