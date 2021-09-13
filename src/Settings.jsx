@@ -7,6 +7,7 @@ import StartingamesSettingsSwitch from './StartingamesSettings/StartingamesSetti
 import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSettingsSelect';
 import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
 import TestContextParent, { TestContextChild } from './TestContext';
+import startingamesRouteManager from './startingames/startingamesRouteManager';
 
 class SettingsSub extends StartingamesSettingsPage
 {
@@ -27,6 +28,13 @@ export default class Settings extends Component
     {
         super(props);
         this.state={test: false, ip: [0,0,0,0], mask: 16};
+
+        
+    }
+
+    gotoInternal(link)
+    {
+        startingamesRouteManager.goto("/_settings"+link);
     }
 
     render()
@@ -44,7 +52,7 @@ export default class Settings extends Component
 
 
 
-                <StartingamesSettings path={this.props.path} route={this.props.route} title="Parametres">
+                <StartingamesSettings genconf={{gotoCallback: this.gotoInternal}} path={this.props.path} route={this.props.route} title="Parametres">
 
                     <StartingamesSettingsSwitch value={this.state.test} callback={(state) => this.setState({test: state})} title="ON OFF switch" />
 

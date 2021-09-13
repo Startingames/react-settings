@@ -4,10 +4,10 @@ import styles from './StartingamesSettingsLinkBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import startingamesRouteManager from '../startingames/startingamesRouteManager';
+import { StartingamesSettingsComponent } from './StartingamesSettingsTop';
 library.add(fas);
 
-export default class StartingamesSettingsLinkBar extends Component
+export default class StartingamesSettingsLinkBar extends StartingamesSettingsComponent
 {
     constructor(props)
     {
@@ -15,11 +15,6 @@ export default class StartingamesSettingsLinkBar extends Component
 
         this.generate = this.generateItems.bind(this);
         this.items = [];
-    }
-
-    gotoInternal(link)
-    {
-        startingamesRouteManager.goto('/_settings'+link);
     }
 
     generateItems(childrens, currentPath = "", link = "")
@@ -61,14 +56,14 @@ export default class StartingamesSettingsLinkBar extends Component
 
         return(
             <div className={styles['linkBar']}>
-                <div className={styles['linkBarButton']} onClick={() => {this.gotoInternal(this.items[this.items.length-2].link);}}>
+                <div className={styles['linkBarButton']} onClick={() => {this.goto(this.items[this.items.length-2].link);}}>
                     <FontAwesomeIcon icon={["fas", "chevron-left"]} />
                 </div>
                 <div>
                     <div className={styles['linkBarL1']}>
                         {this.items.map((item, index) => {
                             if(index < this.items.length-1) {
-                                return (<div onClick={() => {this.gotoInternal(item.link);}}>{item.title}</div>)
+                                return (<div onClick={() => {this.goto(item.link);}}>{item.title}</div>)
                             }
                         })}
                     </div>
