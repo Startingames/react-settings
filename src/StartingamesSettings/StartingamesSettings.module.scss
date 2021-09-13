@@ -27,11 +27,26 @@
 }
 
 .bigMenuContent {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
 }
+
+.bigMenuContentPhone {
+    display: flex;
+    flex-direction: column;
+    background: $color1;
+    margin: 0 5%;
+    height: auto;
+    padding: 10vh 0;
+}
+
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    .bigMenuContent{ display: flex; }
+    .bigMenuContentPhone { display: none; }
+ }
 
 .bigMenuButton{
     padding: 15px 0px;
@@ -144,46 +159,7 @@
 
 
 
-.infoBar {
-    display: flex;
-    margin-bottom: 10px;
-}
 
-.infoBar>div {
-    display: flex;
-    flex-direction: column;
-}
-
-.infoBarL1 {
-    display: flex;
-    font-size: 15px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.infoBarL1>div::after {
-    content: " / ";
-    cursor: default;
-}
-
-.infoBarL1>:nth-last-child(2):after {
-    content: "";
-}
-
-.infoBarL1>:last-child { display: none; }
-
-
-.infoBarL2 {
-    display: flex;
-    font-size: 30px;
-    margin-top: -10px;
-}
-
-.infoBarL2>div {
-    display: none;
-}
-
-.infoBarL2>:last-child { display: unset; }
 
 
 
@@ -225,6 +201,9 @@
 
 .main {
     display: flex;
+
+    width: 100%;
+    height: 100%;
 }
 
 .menu {
@@ -232,8 +211,19 @@
     flex-direction: column;
     background: $color1;
     width: 25vw;
-    height: auto;
-    padding: 10vh 0;
+}
+
+.menu>div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 0;
+    overflow: auto;
+    padding: 2vmin 0;
+}
+
+.menu>div>div {
+    margin: auto 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -299,27 +289,25 @@
 
 */
 
-.returnButton {
-    font-size: 40px;
-    padding: 0 15px;
-    cursor: pointer;
-}
 
-.returnButton:hover {
-    opacity: 0.75;
-}
 
 .page {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     background: $color4;
-    
-    height: 95vh;
-    padding: 2vmin;
+
+    padding: 2vmin 0;
+}
+
+.page>div {
+    padding: 0 2vmin;
 }
 
 .pageContent {
-    height: 100%;
     overflow: auto;
+    height: 0;
+    flex-grow: 1;
 }
 
 .button-icon {

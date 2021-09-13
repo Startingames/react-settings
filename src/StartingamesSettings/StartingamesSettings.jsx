@@ -14,6 +14,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import startingamesRouteManager from '../startingames/startingamesRouteManager';
 import { StartingamesSettingsComponent } from './StartingamesSettingsTop';
+import StartingamesSettingsLinkBar from './StartingamesSettingsLinkBar';
 library.add(fas);
 
 export class StartingamesSettingsSeparator extends StartingamesSettingsComponent
@@ -165,25 +166,6 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
             return (<StartingamesSettingsLink link={link} title={this.props.title} />);
         }
 
-        //Render in display mode "infoBar"
-        if(this.props?.display==="infoBar")
-        {
-            return(<><div onClick={() => {this.gotoInternal(link);}}>{this.props.title}</div>
-                {React.Children.map(this.renderContent().props.children, child => {
-                    if(child.type.prototype.pagefunction)   //TODO maybe a better solution
-                    {
-                        let compopath = child.props?.path;
-                        if(compopath===undefined) {compopath=""}
-                        if(compopath===currentPathOn)
-                        {
-                            return React.cloneElement(child, {display: "infoBar", currentPath: currentPathNext, link: link});
-                        }
-                    }
-                })}
-                </>
-                );
-        }
-
         //Render in display mode "Content" (Normal mode)
         return(
             <>
@@ -238,11 +220,6 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
     {
         this.makeConfig();
 
-        let backpath = this.props.path;
-        if(backpath[backpath.length-1]==="/") { backpath = backpath.substr(0, backpath.length-1); }
-        let backpathIndex = backpath.lastIndexOf("/");
-        backpath = backpath.substr(0, backpathIndex);
-
         if(this.props.path==="")
         {
             return (<>
@@ -259,6 +236,15 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
                             }
                         })}
                     </div>
+
+                    <div className={styles['bigMenuContentPhone']}>
+                        {React.Children.map(this.props.children, child => {
+                            if(child.type.prototype.pagefunction)   //TODO maybe a better solution
+                            {
+                                return React.cloneElement(child, {display: "link", currentPath: "", link: ""});
+                            }
+                        })}
+                    </div>
                 </div>
             </>);
         }
@@ -266,33 +252,17 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
         return (
             <>
                 <div className={styles['main']}>
-                    <div className={styles['menu']}>
-
+                    <div className={styles['menu']}><div><div>
                         {React.Children.map(this.props.children, child => {
                             if(child.type.prototype.pagefunction)   //TODO maybe a better solution
                             {
                                 return React.cloneElement(child, {display: "link", currentPath: "", link: ""});
                             }
                         })}
-
-                    </div>
+                    </div></div></div>
 
                     <div className={styles['page']} >
-
-                        <div className={styles['infoBar']}>
-                            <div className={styles['returnButton']} onClick={() => {this.gotoInternal(backpath);}}>
-                                <FontAwesomeIcon icon={["fas", "chevron-left"]} />
-                            </div>
-                            <div>
-                                <div className={styles['infoBarL1']}>
-                                    <StartingamesSettingsPage link="" title={this.config.title} display="infoBar" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
-                                </div>
-                                <div className={styles['infoBarL2']}>
-                                    <StartingamesSettingsPage link="" title={this.config.title} display="infoBar" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
-                                </div>
-                            </div>
-                            
-                        </div>
+                        <StartingamesSettingsLinkBar path={this.props.path} title={this.props.title}>{this.props.children}</StartingamesSettingsLinkBar>
 
                         <div className={styles['pageContent']} >
                             <StartingamesSettingsPage link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>

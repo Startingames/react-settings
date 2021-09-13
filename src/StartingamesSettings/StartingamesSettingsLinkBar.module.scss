@@ -1,0 +1,43 @@
+@import "../variables.scss";
+
+.linkBar {
+    display: flex;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.linkBarButton {
+    font-size: 40px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.linkBarButton:hover {
+    opacity: 0.75;
+}
+
+.linkBar>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.linkBarL1 {
+    display: flex;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.linkBarL1>div::after {
+    content: " / ";
+    cursor: default;
+}
+
+.linkBarL1>:last-child:after {
+    content: "";
+}
+
+.linkBarL2 {
+    font-size: 30px;
+    margin-top: -10px;
+}
