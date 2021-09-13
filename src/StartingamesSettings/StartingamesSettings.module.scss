@@ -368,7 +368,46 @@
 .link>.content>.logo {
     width: 15%;
     fill: $color2; 
+    position: relative;
+    height: 100%;
+    margin: 2% 0;
 }
+
+.link>.content>.logo:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;   //ratio 1:1 => square
+}
+
+.link>.content>.logo>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.link>.content>.logo>div>div {
+    margin: auto;
+}
+
+/*
+.button001
+{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.button001:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;   //ratio 1:1 => square
+}*/
+
 
 .link>.content>.title {
     margin: auto auto auto 0;

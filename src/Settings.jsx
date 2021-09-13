@@ -8,6 +8,11 @@ import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSetti
 import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
 import TestContextParent, { TestContextChild } from './TestContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas);
+
 class SettingsSub extends StartingamesSettingsPage
 {
     renderContent()
@@ -76,9 +81,9 @@ export default class Settings extends Component
 
                         </StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage title="Devices" slug="slug infopage" path="devices"></StartingamesSettingsPage>
+                        <StartingamesSettingsPage icon= {(<FontAwesomeIcon icon={["fas", "chevron-left"]} />)} title="Devices" slug="slug infopage" path="devices"></StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage title="Network & Internet" slug="slug infopage" path="network">
+                        <StartingamesSettingsPage icon={true} title="Network & Internet" slug="slug infopage" path="network">
 
                                 <SettingsSub title="Sub" slug="slug subpage" path="sub" />
                             
