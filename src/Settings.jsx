@@ -7,7 +7,6 @@ import StartingamesSettingsSwitch from './StartingamesSettings/StartingamesSetti
 import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSettingsSelect';
 import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
 import TestContextParent, { TestContextChild } from './TestContext';
-import startingamesRouteManager from './startingames/startingamesRouteManager';
 
 class SettingsSub extends StartingamesSettingsPage
 {
@@ -27,14 +26,14 @@ export default class Settings extends Component
     constructor(props)
     {
         super(props);
+        this.gotoInternal= this.gotoInternal.bind(this);
         this.state={test: false, ip: [0,0,0,0], mask: 16};
-
         
     }
 
     gotoInternal(link)
     {
-        startingamesRouteManager.goto("/_settings"+link);
+        this.props.myHistory.push("/_settings"+link);
     }
 
     render()

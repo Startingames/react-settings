@@ -1,11 +1,8 @@
 import './App.scss';
 
 import { Component } from 'react';
-import startingamesRouteManager  from './startingames/startingamesRouteManager';
 import Settings from './Settings';
 import history from 'history/browser'
-
-startingamesRouteManager.init(history);
 
 export class AppComponent extends Component
 {
@@ -29,6 +26,6 @@ export class AppComponent extends Component
       let routesplit = this.state.path.split('/');
       routesplit.shift(); //Remove the first element (useless)
 
-      return(<Settings path={this.state.path.substring(10)} route={routesplit}></Settings>);
+      return(<Settings myHistory={history} path={this.state.path.substring(10)} route={routesplit}></Settings>);
     }
 };
