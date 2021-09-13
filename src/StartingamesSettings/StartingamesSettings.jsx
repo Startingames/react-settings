@@ -12,7 +12,7 @@ import '../App.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import startingamesRouteManager from '../startingames/startingamesRouteManager';
+
 import { StartingamesSettingsComponent } from './StartingamesSettingsTop';
 import StartingamesSettingsLinkBar from './StartingamesSettingsLinkBar';
 library.add(fas);
@@ -31,16 +31,11 @@ export class StartingamesSettingsSeparator extends StartingamesSettingsComponent
 
 export class StartingamesSettingsLink extends StartingamesSettingsComponent
 {
-    gotoInternal(link)
-    {
-        startingamesRouteManager.goto('/_settings'+link);
-    }
-
     render()
     {
         return (
             <>
-                <div className={styles['link']} onClick={() => {this.gotoInternal(this.props.link);}}>
+                <div className={styles['link']} onClick={() => {this.goto(this.props.link);}}>
                     <div className={styles['content']}>
                         <div className={styles['logo']}>
 
@@ -88,13 +83,9 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
 {
     pagefunction() { return true; }
 
-    gotoInternal(link)
-    {
-        startingamesRouteManager.goto('/_settings'+link);
-    }
-
     render()
     {
+        let self = this;
         //Get the current Path and format it
         let currentPath = this.props.currentPath;
         if(currentPath===undefined) {currentPath="";}
@@ -119,7 +110,7 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
         {
             return (
                 <div className={styles['bigMenuButtonWrapper']}>
-                    <div className={styles['bigMenuButton']} onClick={() => {this.gotoInternal(link);}}>
+                    <div className={styles['bigMenuButton']} onClick={() => {this.goto(link);}}>
                     
                         <div className={styles['logo']}>
 
@@ -163,7 +154,7 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
         //Render in display mode "link"
         if(this.props?.display==="link")
         {
-            return (<StartingamesSettingsLink link={link} title={this.props.title} />);
+            return (<StartingamesSettingsLink genconf={this.genconf} link={link} title={this.props.title} />);
         }
 
         //Render in display mode "Content" (Normal mode)
@@ -176,18 +167,18 @@ export class StartingamesSettingsPage extends StartingamesSettingsComponent
                         if(compopath===undefined) {compopath=""}
                         if(compopath===currentPathOn)
                         {
-                            return React.cloneElement(child, {currentPath: currentPathNext, link: link});
+                            return React.cloneElement(child, {genconf: self.genconf, currentPath: currentPathNext, link: link});
                         }
                         else if(""===currentPathOn)
                         {
-                            return React.cloneElement(child, {display: "link", currentPath: currentPathNext, link: link});
+                            return React.cloneElement(child, {genconf: self.genconf, display: "link", currentPath: currentPathNext, link: link});
                         }
                     }
                     else
                     {
                         if("" === currentPathOn)
                         {
-                            return React.cloneElement(child, {currentPath: currentPathNext});
+                            return React.cloneElement(child, {genconf: self.genconf, currentPath: currentPathNext});
                         }
                     }
                 })}
@@ -211,11 +202,6 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
         this.config = {title:"Settings"};
     }
 
-    gotoInternal(link)
-    {
-        startingamesRouteManager.goto('/_settings'+link);
-    }
-
     render()
     {
         this.makeConfig();
@@ -232,7 +218,7 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
                         {React.Children.map(this.props.children, child => {
                             if(child.type.prototype.pagefunction)   //TODO maybe a better solution
                             {
-                                return React.cloneElement(child, {display: "bigMenu", currentPath: "", link: ("")});
+                                return React.cloneElement(child, {genconf: this.genconf, display: "bigMenu", currentPath: "", link: ("")});
                             }
                         })}
                     </div>
@@ -241,7 +227,7 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
                         {React.Children.map(this.props.children, child => {
                             if(child.type.prototype.pagefunction)   //TODO maybe a better solution
                             {
-                                return React.cloneElement(child, {display: "link", currentPath: "", link: ""});
+                                return React.cloneElement(child, {genconf: this.genconf, display: "link", currentPath: "", link: ""});
                             }
                         })}
                     </div>
@@ -256,16 +242,16 @@ export default class StartingamesSettings extends StartingamesSettingsComponent
                         {React.Children.map(this.props.children, child => {
                             if(child.type.prototype.pagefunction)   //TODO maybe a better solution
                             {
-                                return React.cloneElement(child, {display: "link", currentPath: "", link: ""});
+                                return React.cloneElement(child, {genconf: this.genconf, display: "link", currentPath: "", link: ""});
                             }
                         })}
                     </div></div></div>
 
                     <div className={styles['page']} >
-                        <StartingamesSettingsLinkBar path={this.props.path} title={this.props.title}>{this.props.children}</StartingamesSettingsLinkBar>
+                        <StartingamesSettingsLinkBar genconf={this.genconf} path={this.props.path} title={this.props.title}>{this.props.children}</StartingamesSettingsLinkBar>
 
                         <div className={styles['pageContent']} >
-                            <StartingamesSettingsPage link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
+                            <StartingamesSettingsPage genconf={this.genconf} link="" currentPath={this.props.path}>{this.props.children}</StartingamesSettingsPage>
                         </div>
                     </div>
                 </div>

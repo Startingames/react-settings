@@ -26,7 +26,14 @@ export default class Settings extends Component
     constructor(props)
     {
         super(props);
+        this.gotoInternal= this.gotoInternal.bind(this);
         this.state={test: false, ip: [0,0,0,0], mask: 16};
+        
+    }
+
+    gotoInternal(link)
+    {
+        this.props.myHistory.push("/_settings"+link);
     }
 
     render()
@@ -44,7 +51,7 @@ export default class Settings extends Component
 
 
 
-                <StartingamesSettings path={this.props.path} route={this.props.route} title="Parametres">
+                <StartingamesSettings genconf={{gotoCallback: this.gotoInternal}} path={this.props.path} route={this.props.route} title="Parametres">
 
                     <StartingamesSettingsSwitch value={this.state.test} callback={(state) => this.setState({test: state})} title="ON OFF switch" />
 
