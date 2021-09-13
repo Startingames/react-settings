@@ -63,7 +63,7 @@ export class StartingamesSettingsLink2 extends StartingamesSettingsComponent
     {
         return (
             <>
-                <div className={styles['link']+" "+styles['active']} onClick={() => {this.goto(this.props.link);}}>
+                <div className={styles['link2']} onClick={() => {this.goto(this.props.link);}}>
                     <div className={styles['content']}>
                         <div className={styles['logo']}><div><div>
 
@@ -71,9 +71,6 @@ export class StartingamesSettingsLink2 extends StartingamesSettingsComponent
 
                         </div></div></div>
                         <div className={styles['title']}>{this.props.title}</div>
-                    </div>
-                    <div className={styles['bar']}>
-
                     </div>
                 </div>
             </>

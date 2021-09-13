@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-* {
+.bigMenu * {
     font-family: 'Nunito', sans-serif;
     color: $color2;
 }
@@ -61,6 +61,8 @@
 
     display:flex;
     flex-direction: column;
+
+    transition: all ease-in-out 0.5s;
 }
 
 .bigMenuButton>.logo
@@ -343,6 +345,31 @@
     
 }
 
+.link2 {
+    cursor: pointer;
+    padding: 0 15px;
+    background: $color4;
+    color: $color1;
+
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px $colorShadow;
+    
+    transition: all ease-in-out 0.5s;
+}
+
+.link2:hover {
+    animation: subLinkAnimation 0.25s linear alternate forwards;
+}
+
+@keyframes subLinkAnimation {
+    0%   { border-radius:15px }
+    100% { border-radius:50px }
+}
+
+.link2>.content>.logo {
+    width: 5%;
+}
+
 .link:hover>.bar{
     animation: barAnimation 0.17s linear normal forwards;
 }
@@ -357,9 +384,11 @@
     padding: 15px;
     background: $color1;
     color: $color2;
+
+    transition: all ease-in-out 0.5s;
 }
 
-.link>.content{
+.content{
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -367,19 +396,22 @@
 
 .link>.content>.logo {
     width: 15%;
+}
+
+.logo {
     fill: $color2; 
     position: relative;
     height: 100%;
     margin: 2% 0;
 }
 
-.link>.content>.logo:before {
+.logo:before {
     content: '';
     display: block;
     padding-bottom: 100%;   //ratio 1:1 => square
 }
 
-.link>.content>.logo>div {
+.logo>div {
     position: absolute;
     top: 0;
     left: 0;
@@ -390,12 +422,12 @@
     overflow: hidden;
 }
 
-.link>.content>.logo>div>div {
+.logo>div>div {
     margin: auto;
     display: flex;
 }
 
-.link>.content>.logo>div>div>* {
+.logo>div>div>* {
     height: 95%;
     width: 95%;
     object-fit: contain;
@@ -415,21 +447,19 @@
     padding-bottom: 100%;   //ratio 1:1 => square
 }*/
 
-
-.link>.content>.title {
+.title {
     margin: auto auto auto 0;
 }
 
-.link.active, .link:hover {
+.link.active, .link:hover, .link2.active, .link2:hover {
     background: $color3;
-    
 }
 
-.link.active, .link:hover>.content>.logo {
+.link2.active, .link.active, .link:hover>.content>.logo, .link2:hover>.content>.logo {
     fill: white;   
 }
 
-.link.active, .link:hover>.content>.title {
+.link2.active, .link.active, .link:hover>.content>.title, .link2:hover>.content>.title {
     color: white;
 }
 
