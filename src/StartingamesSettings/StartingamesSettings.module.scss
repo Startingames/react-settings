@@ -374,16 +374,16 @@
     margin: auto auto auto 0;
 }
 
-.link:hover {
+.link.active, .link:hover {
     background: $color3;
     
 }
 
-.link:hover>.content>.logo {
+.link.active, .link:hover>.content>.logo {
     fill: white;   
 }
 
-.link:hover>.content>.title {
+.link.active, .link:hover>.content>.title {
     color: white;
 }
 
