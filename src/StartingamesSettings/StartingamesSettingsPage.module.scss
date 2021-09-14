@@ -2,33 +2,34 @@
 
 .link {
     cursor: pointer;
-    padding: 0 15px;
+    padding: 0 5px;
     background: $color4;
     color: $color2;
 
     border-radius: 15px;
-    box-shadow: 1px 1px 15px $colorShadow;
+    box-shadow: 1px 1px 10px $colorShadow;
     
     transition: all ease-in-out 0.5s;
 }
 
 .link:hover {
-    animation: subLinkAnimation 0.25s linear alternate forwards;
+    animation: subLinkAnimation 0.25s linear alternate both;
 }
 
 @keyframes subLinkAnimation {
     0%   { border-radius:15px }
-    100% { border-radius:50px }
+    100% { border-radius:30px }
 }
 
 .link>.content>.logo {
-    width: 5%;
+    width: 50px;
+    margin: 5px;
 }
 
 .content{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 5px;
 }
 
 .logo {

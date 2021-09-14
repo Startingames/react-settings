@@ -11,7 +11,9 @@ export class StartingamesSettingsPageLink extends StartingamesSettingsComponent
             <div className={styles['link']} onClick={() => {this.goto(this.props.link);}}>
                 <div className={styles['content']}>
                     <div className={styles['logo']}><div><div>
-                        {this.props?.icon}
+                        <svg width="100%" height="100%" viewBox="0 0 60 55">
+                            {this.props?.icon}
+                        </svg>
                     </div></div></div>
                     <div className={styles['title']}>{this.props.title}</div>
                 </div>
