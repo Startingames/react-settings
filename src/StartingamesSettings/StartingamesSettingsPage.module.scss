@@ -1,0 +1,82 @@
+@import "../variables.scss";
+
+.link {
+    cursor: pointer;
+    padding: 0 15px;
+    background: $color4;
+    color: $color2;
+
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px $colorShadow;
+    
+    transition: all ease-in-out 0.5s;
+}
+
+.link:hover {
+    animation: subLinkAnimation 0.25s linear alternate forwards;
+}
+
+@keyframes subLinkAnimation {
+    0%   { border-radius:15px }
+    100% { border-radius:50px }
+}
+
+.link>.content>.logo {
+    width: 5%;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.logo {
+    fill: $color2; 
+    position: relative;
+    height: 100%;
+}
+
+.logo:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;   //ratio 1:1 => square
+}
+
+.logo>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.logo>div>div {
+    margin: auto;
+    display: flex;
+}
+
+.logo>div>div>* {
+    height: 95%;
+    width: 95%;
+    object-fit: contain;
+}
+
+.title {
+    margin: auto auto auto 0;
+}
+
+.link.active, .link:hover {
+    background: $color3;
+}
+
+.link.active, .link:hover>.content>.logo {
+    fill: white;   
+}
+
+.link.active, .link:hover>.content>.title {
+    color: white;
+}

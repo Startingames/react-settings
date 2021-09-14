@@ -22,10 +22,6 @@ export class AppComponent extends Component
       document.getElementById('reactloaded').value = 1;
       history.listen(this.historyUpdate);
 
-      console.log({"Rendering route " : this.state.path});
-      let routesplit = this.state.path.split('/');
-      routesplit.shift(); //Remove the first element (useless)
-
-      return(<Settings myHistory={history} path={this.state.path.substring(10)} route={routesplit}></Settings>);
+      return(<Settings myHistory={history} path={this.state.path.substring(10)}></Settings>);
     }
 };

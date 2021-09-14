@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styles from './StartingamesSettingsLinkBar.module.scss';
 
 import { StartingamesSettingsComponent } from './StartingamesSettingsTop';
@@ -42,6 +42,7 @@ export default class StartingamesSettingsLinkBar extends StartingamesSettingsCom
                     self.generateItems(child.props.children, currentPathNext, link);
                 }
             }
+            return null;
         })
     }
 
@@ -59,8 +60,8 @@ export default class StartingamesSettingsLinkBar extends StartingamesSettingsCom
                     <div className={styles['linkBarL1']}>
                         {this.items.map((item, index) => {
                             if(index < this.items.length-1) {
-                                return (<div onClick={() => {this.goto(item.link);}}>{item.title}</div>)
-                            }
+                                return (<div onClick={() => {this.goto(item.link);}}>{item.title}</div>);
+                            } return null;
                         })}
                     </div>
                     <div className={styles['linkBarL2']}>

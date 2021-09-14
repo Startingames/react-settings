@@ -38,10 +38,6 @@ export default class StartingamesSettingsIPv4 extends StartingamesSettingsCompon
     {
         this.makeConfig();
 
-        console.log(this.genconf);
-
-        let self = this;
-
         return (
             <>
                 <div className={styles['ipv4']}>

@@ -2,22 +2,22 @@ import React, {Component} from 'react';
 
 import './App.scss';
 
-import StartingamesSettings, { StartingamesSettingsPage, StartingamesSettingsSeparator } from './StartingamesSettings/StartingamesSettings';
+import StartingamesSettings, { StartingamesSettingsSeparator } from './StartingamesSettings/StartingamesSettings';
+import StartingamesSettingsPage from './StartingamesSettings/StartingamesSettingsPage';
 import StartingamesSettingsSwitch from './StartingamesSettings/StartingamesSettingsSwitch';
 import StartingamesSettingsSelect from './StartingamesSettings/StartingamesSettingsSelect';
 import StartingamesSettingsIPv4 from './StartingamesSettings/StartingamesSettingsIPv4';
-import TestContextParent, { TestContextChild } from './TestContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+
 library.add(fas);
 
 class SettingsSub extends StartingamesSettingsPage
 {
     renderContent()
     {
-        console.log("test title my : "+this.props.title);
         return (
             <>
                 <StartingamesSettingsSeparator slug="sub" >3</StartingamesSettingsSeparator>
@@ -32,7 +32,12 @@ export default class Settings extends Component
     {
         super(props);
         this.gotoInternal= this.gotoInternal.bind(this);
-        this.state={test: false, ip: [0,0,0,0], mask: 16};
+
+        this.state={test: false,
+            ip: [0,0,0,0], mask: 16,
+            gestUser: true,
+            autoUpdate: false,
+            updateChannel: 1};
         
     }
 
@@ -44,48 +49,31 @@ export default class Settings extends Component
     render()
     {
         document.getElementById('reactloaded').value = 1;
-        console.log("New Rendering....");
 
         return (
-            <>
+            <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
+                <div style={{margin:"auto"}} ><img src="/startingames.png" alt="Startingames" style={{height: "100px", maxHeight: "20vh"}}/></div>
 
-                <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
+                <StartingamesSettings genconf={{gotoCallback: this.gotoInternal}} path={this.props.path} title="Settings">
 
-                <div style={{margin:"auto"}} ><img src="/startingames.png" style={{height: "100px", maxHeight: "20vh"}}/></div>
+                    <StartingamesSettingsSeparator title="Autres" path="autre">1</StartingamesSettingsSeparator>
 
+                        <StartingamesSettingsPage icon= {(<FontAwesomeIcon icon={["fas", "cog"]} />)} title="System" slug="slug infopage" path="info">
 
-
-
-                <StartingamesSettings genconf={{gotoCallback: this.gotoInternal}} path={this.props.path} route={this.props.route} title="Parametres">
-
-                    <StartingamesSettingsSwitch value={this.state.test} callback={(state) => this.setState({test: state})} title="ON OFF switch" />
-
-                    <StartingamesSettingsSeparator title="Autres" slug="slug autre" path="autre">1</StartingamesSettingsSeparator>
-
-                    <StartingamesSettingsSelect title="test" values={[0,1]} display={["NO", "YES"]} value={1} />
-
-
-                    <StartingamesSettingsSeparator title="Autres" slug="slug autre" path="autre">1</StartingamesSettingsSeparator>
-
-                        <StartingamesSettingsPage title="System" desc="My amazing description" slug="slug infopage" path="info">
-
-                                <SettingsSub title="Sub" slug="slug subpage" path="sub" />
+                                <SettingsSub icon= {(<FontAwesomeIcon icon={["fas", "cog"]} />)} title="Sub" slug="slug subpage" path="sub" />
                             
                                 <StartingamesSettingsSeparator slug="info">2</StartingamesSettingsSeparator>
 
 
-                                
-
-
-                                <StartingamesSettingsIPv4 ip={this.state.ip} mask={this.state.mask} callbackIp={(state) => this.setState({ip: state})} callbackMask={(state) => this.setState({mask: state})} />
-
                         </StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage icon= {(<FontAwesomeIcon icon={["fas", "chevron-left"]} />)} title="Devices" slug="slug infopage" path="devices"></StartingamesSettingsPage>
+                        <StartingamesSettingsPage icon={(<image xlinkHref="/startingames-logo.png" width="100%" height="100%" />)} title="About" desc="About Startingames React Settings" path="devices"></StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage icon={true} title="Network & Internet" slug="slug infopage" path="network">
+                        <StartingamesSettingsPage icon={(<FontAwesomeIcon icon={["fas", "network-wired"]} />)} title="Network & Internet" desc="Network Settings Exemple" path="network">
 
                                 <SettingsSub title="Sub" slug="slug subpage" path="sub" />
+
+                                <StartingamesSettingsIPv4 ip={this.state.ip} mask={this.state.mask} callbackIp={(state) => this.setState({ip: state})} callbackMask={(state) => this.setState({mask: state})} />
                             
                                 <StartingamesSettingsSeparator slug="info">2</StartingamesSettingsSeparator>
 
@@ -113,12 +101,19 @@ export default class Settings extends Component
 
                         </StartingamesSettingsPage>
 
-                        <StartingamesSettingsPage title="Accounts" slug="slug infopage" path="accounts"></StartingamesSettingsPage>
-                        <StartingamesSettingsPage title="Update & Saves" slug="slug infopage" path="update-saves"></StartingamesSettingsPage>
+                        <StartingamesSettingsPage icon={(<FontAwesomeIcon icon={["fas", "user"]} />)} title="Accounts" path="accounts">
+                            <StartingamesSettingsSwitch title="Allow Guest users" value={this.state.gestUser} callback={(state) => this.setState({gestUser: state})} />
+                        </StartingamesSettingsPage>
+
+                        <StartingamesSettingsPage icon={(<FontAwesomeIcon icon={["fas", "sync-alt"]} />)} title="Update & Saves" path="update-saves">
+                            <StartingamesSettingsSwitch title="Auto update" value={this.state.autoUpdate} callback={(state) => this.setState({autoUpdate: state})} />
+                            <StartingamesSettingsSelect title="Update Channel" values={[0,1]} display={["Production ready", "Developpement"]} value={this.state.updateChannel} callback={(state) => this.setState({updateChannel: state})}/>
+                        </StartingamesSettingsPage>
+
                 </StartingamesSettings>
 
-                </div>
-            </>
+                <div style={{margin:"auto"}} >© Startingames - React Settings Demo</div>
+            </div>
         );
     }
 };

@@ -26,11 +26,13 @@
     font-size: 40px;
 }
 
-.bigMenuContent {
+.bigMenuContentPC {
     display: none;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: stretch;
+}
+
+.bigMenuContentPC>div {
+    height: 100%;
+    width: 100%;
 }
 
 .bigMenuContentPhone {
@@ -44,162 +46,51 @@
 
  /* Medium devices (landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
-    .bigMenuContent{ display: flex; }
+    .bigMenuContentPC{ display: flex; }
     .bigMenuContentPhone { display: none; }
  }
 
-.bigMenuButton{
-    padding: 15px 0px;
-
-    width: 80%;
-    cursor: pointer;
-
-    background-color: $color1;
-    border-radius: 30px;
-    box-shadow: 1px 1px 15px $colorShadow;
-    margin: 0 auto;
-
-    display:flex;
-    flex-direction: column;
-
-    transition: all ease-in-out 0.5s;
-}
-
-.bigMenuButton>.logo
-{
-    width: 25%;
-    margin:auto;
-}
-
-.bigMenuButton>.logo
-{
-    fill: $color2;
-}
-
-
-.bigMenuButton>.title
-{
-    margin:auto;
-    padding: 5px 0px;
-    font-size: 4vh;
-}
-
-.bigMenuButton>.desc
-{
-    margin:auto;
-    padding: 5px 0px;
-    font-size: 2vh;
-}
-
-.bigMenuButton:hover {
-    background:$color3;
-}
-
-.bigMenuButton:hover .logo{
-    fill: white;
-}
-
-.bigMenuButton:hover .title{
-    color: white;
-}
-
-.bigMenuButtonWrapper {
-    display: flex;
-    padding: 10px 0px;
-}
-
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
-    .bigMenuButtonWrapper{
-        width: 100%;
-    }
     .bigMenuTitle>div { font-size: 35px; }
  }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
-    .bigMenuButtonWrapper{
-        width: 75%;
-    }
     .bigMenuTitle>div { font-size: 45px; }
  }
  
  /* Medium devices (landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) {
-    .bigMenuButtonWrapper{
-        width: 50%;
-    }
     .bigMenuTitle>div { font-size: 55px; }
  }
  
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
-    .bigMenuButtonWrapper{
-        width: 33%;
-    }
     .bigMenuTitle>div { font-size: 65px; }
  }
  
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {
     .bigMenuTitle>div { font-size: 75px; }
-    .bigMenuButtonWrapper{
-        width: 33%;
-    }
  }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.infoBar>div>div {
-    display: none;
-    cursor: pointer;
+ .leftMenu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 0;
+    overflow: auto;
+    padding: 2vmin 0;
 }
 
-.infoBar>div>div::after {
-    content: " / ";
-    cursor: default;
+.leftMenu>div {
+    margin: auto 0;
 }
-
-.infoBar>div>:last-child::after { content: ""; }
-
-.infoBar>div>:last-child { display: unset; }
-*/
-
-/*
-@media only screen and (min-width: 768px) {
-
-    .infoBar>div>div {display: unset;}
-
-    }*/
-
-
-/*
-.infoBarPath {
-    display: none;
-    cursor: pointer;
-}
-  
-@media only screen and (min-width: 768px) {
-
-.infoBarPath {display: unset;}
-}
-*/
 
 .main {
     display: flex;
@@ -215,83 +106,10 @@
     width: 25vw;
 }
 
-.menu>div {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    height: 0;
-    overflow: auto;
-    padding: 2vmin 0;
-}
-
-.menu>div>div {
-    margin: auto 0;
-}
-
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     .menu {display: flex;}
-    }
-
-    /*
-.menu-menu>div {
-    margin: auto 0;
-    overflow-x: auto;
 }
-
-.menu-menu-el {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 2vh 0vh;
-    font-size: 1.4vw;
-    min-height: 7vh;
-    background: $colorext1;
-}
-
-.menu-menu-el>div {
-    margin: auto 0;
-    padding: 0 0.5vw;
-}
-
-.menu-menu-el.selected {
-    background: rgba($colorext1, .25);
-}
-
-.menu-menu-el:hover {
-    background: rgba($colorext1, .75);
-    cursor: pointer;
-}
-
-.menu-menu-el.selected:hover {
-    background: rgba($colorext1, .25);
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
-.menu-name {
-    width: 100%;
-    height: 10vh;
-    font-size: 6vmin;
-}
-
-.menu-title {
-    height: 5vh;
-    font-size: 3vmin;
-    background: $color4;
-    color: $colorext2;
-    padding-left: 0.5vw;
-}
-
-*/
-
-
 
 .page {
     display: flex;
@@ -312,235 +130,8 @@
     flex-grow: 1;
 }
 
-.button-icon {
-    background: $color2;
-    padding: 0 0.75vw;
-    height: 100%;
-}
-
-.button-icon:hover {
-    background: rgba($color2, .75);
-    cursor: pointer;
-}
-
-
-
-
-
-
-
 
 .separator {
     border-bottom: white solid 2px;
     margin: 10px;
 }
-
-
-.bar {
-    height: 3px;
-    border-radius: 100px;
-    width: 0%;
-    margin-left: 2%;
-    background: white;
-    
-}
-
-.link2 {
-    cursor: pointer;
-    padding: 0 15px;
-    background: $color4;
-    color: $color2;
-
-    border-radius: 15px;
-    box-shadow: 1px 1px 15px $colorShadow;
-    
-    transition: all ease-in-out 0.5s;
-}
-
-.link2:hover {
-    animation: subLinkAnimation 0.25s linear alternate forwards;
-}
-
-@keyframes subLinkAnimation {
-    0%   { border-radius:15px }
-    100% { border-radius:50px }
-}
-
-.link2>.content>.logo {
-    width: 5%;
-}
-
-.link:hover>.bar{
-    animation: barAnimation 0.17s linear normal forwards;
-}
-
-@keyframes barAnimation {
-    0%   { width:0% }
-    100% { width:75% }
-}
-
-.link {
-    cursor: pointer;
-    padding: 15px;
-    background: $color1;
-    color: $color2;
-
-    transition: all ease-in-out 0.5s;
-}
-
-.content{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.link>.content>.logo {
-    width: 15%;
-}
-
-.logo {
-    fill: $color2; 
-    position: relative;
-    height: 100%;
-    margin: 2% 0;
-}
-
-.logo:before {
-    content: '';
-    display: block;
-    padding-bottom: 100%;   //ratio 1:1 => square
-}
-
-.logo>div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-    overflow: hidden;
-}
-
-.logo>div>div {
-    margin: auto;
-    display: flex;
-}
-
-.logo>div>div>* {
-    height: 95%;
-    width: 95%;
-    object-fit: contain;
-}
-
-/*
-.button001
-{
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.button001:before {
-    content: '';
-    display: block;
-    padding-bottom: 100%;   //ratio 1:1 => square
-}*/
-
-.title {
-    margin: auto auto auto 0;
-}
-
-.link.active, .link:hover, .link2.active, .link2:hover {
-    background: $color3;
-}
-
-.link2.active, .link.active, .link:hover>.content>.logo, .link2:hover>.content>.logo {
-    fill: white;   
-}
-
-.link2.active, .link.active, .link:hover>.content>.title, .link2:hover>.content>.title {
-    color: white;
-}
-
-.link>title {
-    flex-grow: 1;
-    width: auto;
-    margin: auto;
-}
-
-.switch {
-    display: flex;
-    border: white solid 1px;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.switch>p {
-    flex-grow: 1;
-    width: auto;
-    margin: auto;
-}
-
-/* The switch - the box around the slider */
-.button {
-    position: relative;
-    display: flex;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .button input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
