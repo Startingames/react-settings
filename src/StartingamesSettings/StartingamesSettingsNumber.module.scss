@@ -1,4 +1,4 @@
-.ipv4 {
+.number {
     display: flex;
     border: white solid 1px;
     border-radius: 5px;
@@ -7,17 +7,17 @@
     height: 50px;
 }
 
-.ipv4>p {
+.number>p {
     flex-grow: 1;
     width: auto;
     margin: auto;
 }
 
-.ipv4>div {
+.number>div {
     margin: auto;
 }
 
-.ipv4>div>input {
+.number>div>input {
     color: black;
-    margin: 0 5px;
+    font-size: 20px;
 }

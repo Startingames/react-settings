@@ -1,8 +1,10 @@
 .select {
     display: flex;
     border: white solid 1px;
-    padding: 5px;
     border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 50px;
 }
 
 .select>p {
@@ -11,6 +13,11 @@
     margin: auto;
 }
 
+.select>div {
+    margin: auto;
+}
+
 .selectSelect {
     color: black;
+    font-size: 20px;
 }

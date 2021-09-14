@@ -1,4 +1,4 @@
-.ipv4 {
+.info {
     display: flex;
     border: white solid 1px;
     border-radius: 5px;
@@ -7,17 +7,13 @@
     height: 50px;
 }
 
-.ipv4>p {
+.info>p {
     flex-grow: 1;
     width: auto;
     margin: auto;
 }
 
-.ipv4>div {
+.info>div {
     margin: auto;
-}
-
-.ipv4>div>input {
-    color: black;
-    margin: 0 5px;
+    text-align: right;
 }
