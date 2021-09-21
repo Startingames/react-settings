@@ -74,7 +74,11 @@ export default class Settings extends Component
 
         return (
             <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
-                <div style={{margin:"auto"}} ><img src="/startingames.png" alt="Startingames" style={{height: "100px", maxHeight: "20vh"}}/></div>
+                <div style={{margin:"auto"}} >
+                    <a className="flex flex-none" target="_blank" rel="noopener noreferrer" href="http://startingames.fr" style={{height: "100px", maxHeight: "20vh"}}>
+                    <img src="/startingames.png" alt="Startingames" style={{height: "100px", maxHeight: "20vh"}}/>
+                    </a>
+                    </div>
 
                 <StartingamesSettings genconf={{gotoCallback: this.gotoInternal}} path={this.props.path} title="Settings">
 
