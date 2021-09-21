@@ -105,7 +105,7 @@ export default class Settings extends Component
                         </StartingamesSettingsPage>
 
                         <StartingamesSettingsPage icon={(<image xlinkHref="/startingames-logo.png" width="100%" height="100%" />)} title="About" desc="About Startingames React Settings" path="about">
-                            
+                            <StartingamesSettingsInfo title="Version" value="0.1.0 - BETA" />
                         </StartingamesSettingsPage>
 
 
