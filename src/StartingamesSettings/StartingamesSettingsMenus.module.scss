@@ -1,0 +1,186 @@
+@import "../variables.scss";
+
+
+.bigMenuContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.bigMenuButton{
+    padding: 15px 0px;
+
+    width: 80%;
+    cursor: pointer;
+
+    background-color: $color1;
+    border-radius: 30px;
+    box-shadow: 1px 1px 15px $colorShadow;
+    margin: 0 auto;
+
+    display:flex;
+    flex-direction: column;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.bigMenuButton>.logo
+{
+    width: 25%;
+    margin:auto;
+    fill: $color2;
+}
+
+.bigMenuButton>.title
+{
+    margin:auto;
+    padding: 5px 0px;
+    font-size: 4vh;
+}
+
+.bigMenuButton>.desc
+{
+    margin:auto;
+    padding: 5px 0px;
+    font-size: 2vh;
+}
+
+.bigMenuButton:hover {
+    background:$color3;
+}
+
+.bigMenuButton:hover .logo{
+    fill: white;
+}
+
+.bigMenuButton:hover .title{
+    color: white;
+}
+
+.bigMenuButtonWrapper {
+    display: flex;
+    padding: 10px 0px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .bigMenuButtonWrapper{ width: 100%; }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .bigMenuButtonWrapper{ width: 75%; }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .bigMenuButtonWrapper{ width: 50%; }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .bigMenuButtonWrapper{ width: 33%; }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .bigMenuButtonWrapper{ width: 33%; }
+}
+
+
+
+
+
+.bar {
+    height: 3px;
+    border-radius: 100px;
+    width: 0%;
+    margin-left: 2%;
+    background: white;
+    
+}
+
+.link:hover>.bar{
+    animation: barAnimation 0.17s linear normal forwards;
+}
+
+@keyframes barAnimation {
+    0%   { width:0% }
+    100% { width:75% }
+}
+
+.link {
+    cursor: pointer;
+    padding: 15px;
+    background: $color1;
+    color: $color2;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.link>.content>.logo {
+    width: 15%;
+}
+
+.logo {
+    fill: $color2; 
+    position: relative;
+    height: 100%;
+}
+
+.logo:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;   //ratio 1:1 => square
+}
+
+.logo>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.logo>div>div {
+    margin: auto;
+    display: flex;
+}
+
+.logo>div>div>* {
+    height: 95%;
+    width: 95%;
+    object-fit: contain;
+}
+
+.title {
+    margin: auto auto auto 0;
+}
+
+.link.active, .link:hover, .link2.active, .link2:hover {
+    background: $color3;
+}
+
+.link.active, .link:hover>.content>.logo  {
+    fill: white;   
+}
+
+.link.active, .link:hover>.content>.title {
+    color: white;
+}
+
+.link>title {
+    flex-grow: 1;
+    width: auto;
+    margin: auto;
+}

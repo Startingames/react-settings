@@ -1,4 +1,4 @@
-.select {
+.ipv4 {
     display: flex;
     border: white solid 1px;
     border-radius: 5px;
@@ -7,17 +7,17 @@
     height: 50px;
 }
 
-.select>p {
+.ipv4>p {
     flex-grow: 1;
     width: auto;
     margin: auto;
 }
 
-.select>div {
+.ipv4>div {
     margin: auto;
 }
 
-.selectSelect {
+.ipv4>div>input {
     color: black;
-    font-size: 20px;
+    margin: 0 5px;
 }

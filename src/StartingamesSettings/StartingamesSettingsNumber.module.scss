@@ -1,4 +1,4 @@
-.select {
+.number {
     display: flex;
     border: white solid 1px;
     border-radius: 5px;
@@ -7,17 +7,17 @@
     height: 50px;
 }
 
-.select>p {
+.number>p {
     flex-grow: 1;
     width: auto;
     margin: auto;
 }
 
-.select>div {
+.number>div {
     margin: auto;
 }
 
-.selectSelect {
+.number>div>input {
     color: black;
     font-size: 20px;
 }

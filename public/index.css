@@ -22,6 +22,10 @@ code {
 }
 
 .root {
+  background-color: #08101A/*rgb(54, 54, 54);*/
+}
+
+.root {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -39,7 +43,7 @@ code {
 }
 
 .loader {
-    background-color: #777777;
+    background-color: #08101A; /*rgb(54, 54, 54);*/
     color: white;
     display: flex;
     

@@ -1,14 +1,20 @@
 .switch {
     display: flex;
     border: white solid 1px;
-    padding: 5px;
     border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 50px;
 }
 
 .switch>p {
     flex-grow: 1;
     width: auto;
     margin: auto;
+}
+
+.switch>div {
+  margin: auto;
 }
 
 /* The switch - the box around the slider */
